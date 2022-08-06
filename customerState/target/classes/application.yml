@@ -1,0 +1,29 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: state
+  datasource:
+    username: postgres
+    password: 1199
+    url: jdbc:postgresql://localhost:5432/customer_state
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: 'true'
+        hibernate:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    eureka:
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    preferIpAddress: true
+    instanceId: ${spring.application.name}:${random.uuid}
+    lease-renewal-interval-in-seconds: 10
